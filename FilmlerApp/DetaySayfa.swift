@@ -9,21 +9,22 @@ import UIKit
 
 class DetaySayfa: UIViewController {
 
+    @IBOutlet weak var labelFiyat: UILabel!
+    
+    @IBOutlet weak var imageViewFilm: UIImageView!
+    
+
+    @IBOutlet weak var labelFilm: UILabel!
+    
+    var film:Filmler?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let f = film {
+            labelFilm.text = f.ad
+            imageViewFilm.image = UIImage(named: f.resim!)
+            labelFiyat.text = "\(f.fiyat!) ₺"
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
